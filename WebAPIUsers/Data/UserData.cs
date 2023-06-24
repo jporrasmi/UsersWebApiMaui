@@ -17,10 +17,9 @@ namespace WebAPIUsers.Data
                 SqlCommand cmd = new SqlCommand("storeprocedure_AddUser", sqlconnection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CodUser", user.CodUser);
-                cmd.Parameters.AddWithValue("@Id", user.Id);
                 cmd.Parameters.AddWithValue("@Name", user.Name);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
-                cmd.Parameters.AddWithValue("@SecondLastName", user.SecondLasName);
+                cmd.Parameters.AddWithValue("@SecondLastName", user.SecondLastName);
 
                 try {
                     sqlconnection.Open();
@@ -47,7 +46,7 @@ namespace WebAPIUsers.Data
                 cmd.Parameters.AddWithValue("@Id", user.Id);
                 cmd.Parameters.AddWithValue("@Name", user.Name);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
-                cmd.Parameters.AddWithValue("@SecondLastName", user.SecondLasName);
+                cmd.Parameters.AddWithValue("@SecondLastName", user.SecondLastName);
 
                 try
                 {
@@ -93,7 +92,7 @@ namespace WebAPIUsers.Data
                                 Id = reader["Id"].ToString(),
                                 Name = reader["Name"].ToString(),
                                 LastName = reader["LastName"].ToString(),
-                                SecondLasName = reader["SecondLastName"].ToString(),
+                                SecondLastName = reader["SecondLastName"].ToString(),
                             });
 
                             System.Diagnostics.EventLog.WriteEntry("Application", newUser.CodUser);
@@ -140,7 +139,7 @@ namespace WebAPIUsers.Data
                                 Id = reader["Id"].ToString(),
                                 Name = reader["Name"].ToString(),
                                 LastName = reader["LastName"].ToString(),
-                                SecondLasName = reader["SecondLastName"].ToString(),
+                                SecondLastName = reader["SecondLastName"].ToString(),
                             };
                         }
                     }

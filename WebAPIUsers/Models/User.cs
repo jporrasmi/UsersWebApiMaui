@@ -12,7 +12,7 @@ namespace WebAPIUsers.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public string SecondLasName { get; set; }
+        public string SecondLastName { get; set; }
     }
 
 }

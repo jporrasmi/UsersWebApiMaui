@@ -18,36 +18,36 @@ namespace WebAPIUsers.Controllers
         //// GET api/<controller>
         public List<User> Get()
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "Va a listar todos los usuarios");
+            //System.Diagnostics.EventLog.WriteEntry("Application", "Va a listar todos los usuarios");
             return UserData.ListUser();
         }
 
         // GET api/<controller>/5
         public User Get(String codUser)
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "va a obtener al usuario: " + codUser);
+            //System.Diagnostics.EventLog.WriteEntry("Application", "va a obtener al usuario: " + codUser);
             return UserData.GetUser(codUser);
         }
 
         // POST api/<controller>
         public bool Post([FromBody] User usuario)
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "Llego al post " + usuario.CodUser);
+            //System.Diagnostics.EventLog.WriteEntry("Application", "Llego al post " + usuario.CodUser);
             return UserData.AddUser(usuario);
         }
 
         // PUT api/<controller>/5
         public bool Put([FromBody] User usuario)
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "Llego al put " + usuario.CodUser);
+            //System.Diagnostics.EventLog.WriteEntry("Application", "Llego al put " + usuario.CodUser);
             return UserData.ModifyUser(usuario);
         }
 
         // DELETE api/<controller>/5
-        public bool Delete(String codUser)
+        public bool Delete(int Id)
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "Llego al delete " + codUser);
-            return UserData.DeleteUser(codUser);
+            //System.Diagnostics.EventLog.WriteEntry("Application", "Llego al delete " + Id);
+            return UserData.DeleteUser(Id);
         }
     }
 }

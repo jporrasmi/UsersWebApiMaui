@@ -67,7 +67,7 @@ namespace WebAPIUsers.Data
 
         public static List<User> ListUser()
         {
-            System.Diagnostics.EventLog.WriteEntry("Application", "Llego al listar de la base de datos");
+            //System.Diagnostics.EventLog.WriteEntry("Application", "Llego al listar de la base de datos");
 
 
             List<User> list = new List<User>();
@@ -89,13 +89,13 @@ namespace WebAPIUsers.Data
                             newUser = (new User()
                             {
                                 CodUser = reader["CodUser"].ToString(),
-                                Id = reader["Id"].ToString(),
+                                Id =  (int)reader["Id"],
                                 Name = reader["Name"].ToString(),
                                 LastName = reader["LastName"].ToString(),
                                 SecondLastName = reader["SecondLastName"].ToString(),
                             });
 
-                            System.Diagnostics.EventLog.WriteEntry("Application", newUser.CodUser);
+                            //System.Diagnostics.EventLog.WriteEntry("Application", newUser.CodUser);
                             list.Add(newUser);
                         }
                     }
@@ -106,7 +106,7 @@ namespace WebAPIUsers.Data
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.EventLog.WriteEntry("Application", "Dio error en la excepcion: " +  ex.InnerException.ToString() );
+                   // System.Diagnostics.EventLog.WriteEntry("Application", "Dio error en la excepcion: " +  ex.InnerException.ToString() );
                     return list;
                 }
 
@@ -136,7 +136,7 @@ namespace WebAPIUsers.Data
                             user = new User()
                             {
                                 CodUser = reader["CodUser"].ToString(),
-                                Id = reader["Id"].ToString(),
+                                Id = (int)reader["Id"],
                                 Name = reader["Name"].ToString(),
                                 LastName = reader["LastName"].ToString(),
                                 SecondLastName = reader["SecondLastName"].ToString(),
@@ -157,14 +157,14 @@ namespace WebAPIUsers.Data
 
         }
 
-        public static bool DeleteUser(String CodUser)
+        public static bool DeleteUser(int Id)
         {
 
             using (SqlConnection sqlconnection = new SqlConnection(Conexion.ConexionId))
             {
                 SqlCommand cmd = new SqlCommand("storeprocedure_DeleteUser", sqlconnection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CodUser", CodUser);
+                cmd.Parameters.AddWithValue("@Id", Id);
 
                 try
                 {
